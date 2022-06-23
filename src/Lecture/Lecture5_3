@@ -1,0 +1,76 @@
+git의 기본 사용법과 원리
+    9.git log와 커밋 ID
+        git log - 상세
+        git log --oneline - 요약
+        git log --oneline --graph - 요약 + 이미지
+        git log --oneline --graph --decorate - 요약 + 이미지 + 커밋 ID
+        git shortlog - 아주 간략한 로그
+        git show 커밋id - 커밋 id로 특정 커밋을 보여줌
+        gitk - GUI화면으로 커밋정보를 보여줌
+        git reflog - HEAD가 가리켰던(ref) 커밋 이력을 보여줌
+        git reflog 브랜치명 - 브랜치별로 reflog를 보여줌
+        git log -g - reflog를 상세히 보여줌
+
+    10.reflog
+        HEAD가 이동한 history를 보여줌
+        >git reflog
+
+    11.git이 파일을 관리하는 방식
+        파일 이름 대신 object id로 파일을 관리
+        파일을 생성하면 object id가 생성됨
+        파일을 수정하면 object id가 변경됨
+        파일을 삭제하면 object id가 삭제됨
+
+        커밋 당시의 실제 파일 대신 object id의 목록만 저장. (파일은 별도로 저장) map(k,v)구조로써 objectid,object
+        파일 목록으로 관리한다.
+        Working Directory의 정보(파일 목록)은 각 커밋 내에 저장됨
+        snapshot : 각 커밋했을때 working directory의 정보를 저장함
+        변경되거나 추가된것들만 local에 저장됨
+
+    12.branch
+        현재 커밋이 어떤 브랜치에 속해있는지 알려줌
+        >git branch
+
+        >git branch 브랜치명 - 브랜치를 생성함
+        >git checkout 브랜치명 - 브랜치를 선택함 --다른 브랜치로 옮길때
+        >git branch -d 브랜치명 - 브랜치를 삭제함
+        >git branch -D 브랜치명 (영구삭제)
+        >git branch -m 브랜치명 - 브랜치를 변경함
+
+    13.fast-forward merge -> ff(전진)
+        새로운 커밋이 안만들어진다.
+        새로운 브랜치를 생성하고 이전 브랜치에서 커밋을 복사하여 새로운 브랜치로 옮긴다.
+        >git merge 브랜치명 --ff - 브랜치를 병합함
+            최신으로 합쳐진다.
+
+    14.no fast-forward merge -> nff(반전)
+        무조건 새로운 커밋이 만들어진다.
+        >git merge --no-ff 브랜치명 - 브랜치를 병합함(커밋을 영구적으로 병합하지 않음)
+            같은내용커밋이 하나 더생긴다.
+        >git merge --no-ff --no-commit 브랜치명 - 브랜치를 병합함(커밋을 영구적으로 병합하지 않음)
+        >git merge --no-ff --no-commit --no-edit 브랜치명 - 브랜치를 병합함(커밋을 영구적으로 병합하지 않음)
+        >git merge --no-ff --no-commit --no-edit --no-commit-msg 브랜치명 - 브랜치를 병합함(커밋을 영구적으로 병합하지 않음)
+
+    15.merge conflict
+        main브랜치를 dev와 merge
+        >git merge dev
+
+    16.reset vs checkout
+        reset : HEAD와 branch가 함께 이동
+        checkout : HEAD만 이동
+            detachedHEAD : branch없이 HEAD만 있는것
+            원래 branch랑 head랑 같이 가야하는데 떨어졌다는, 의미 보통 잠깐 보려고한다.
+
+        ★결국 branch는 commit사이를 오고가려고 하는것이다!
+        커밋 아이디를 몰라도 쉽게 오고갈수 있으니까
+
+    17.git의 브랜칭 전략
+        어떻게 이력(history)을 남길 것인가??
+
+        undo/redo를 편하게!
+
+
+
+
+
+

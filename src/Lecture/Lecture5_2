@@ -1,0 +1,47 @@
+git의 기본 사용법과 원리
+    1.git이란?
+        Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+        1.어떻게 협업할것인가
+        2.이력관리, history
+
+    2.지역 저장소와 원격 저장소
+        Local, Remote
+
+    3.Staging Area란?
+        Staging area is a temporary area where you can store your changes before you commit them to your repository.
+
+        >git add 파일이름 : Staging area에 파일을 추가하는 명령어
+
+        Local Repository에다가 저장하기전에 임시로 저장하는 공간인 Staging Area가 있다.
+
+    4.Staging Area관련 명령어
+        [주의] 파일을 삭제할 때, working directory에서 직접 삭제하지 말고, git을 통해 삭제해야 이력이 관리된다.
+
+    5.커밋(commit)이란?
+        Commit is a process of merging your changes with the master branch.
+        >git commit -m "커밋 메시지" : 커밋 명령어
+        커밋 메시지는 커밋할 때 작성하는 메시지를 입력하는 곳이다.
+
+        Staging Area에 있는 모든 변경사항을 커밋(저장)하는 과정이다.
+
+    6.커밋 관련 명령
+        커밋생성
+        커밋수정
+        취소커밋생성
+
+        git commit --amend는 아무것도 변경안해도 커밋id가 달라진다. git reflog로 확인가능
+
+    7.커밋 수정하기
+        최근 커밋에 파일을 추가 또는 삭제하는 방법
+        reset --soft를 통해서 Local Repository에서 Staging Area로 되돌릴 수 있다. 되돌린 커밋을 만들어서 이력을 남김.
+
+    8.HEAD와 reset
+        커밋 사이를 왔다갔다 할 수있다. 현재 보고있는 커밋을 알려주는게 HEAD
+
+        커밋을 수정하면 새로운 커밋이 생성됨
+
+    실습
+        Untracked files : 깃이 관리하지 않는 파일
+        git reset Soft는 Staging Area에 넣는것
+        gir reset Hard는 커밋전으로

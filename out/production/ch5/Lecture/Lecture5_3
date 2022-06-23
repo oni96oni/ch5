@@ -1,0 +1,16 @@
+git의 기본 사용법과 원리
+    9.git log와 커밋 ID
+        git log - 상세
+        git log --oneline - 요약
+        git log --oneline --graph - 요약 + 이미지
+        git log --oneline --graph --decorate - 요약 + 이미지 + 커밋 ID
+        git shortlog - 아주 간략한 로그
+        git show 커밋id - 커밋 id로 특정 커밋을 보여줌
+        gitk - GUI화면으로 커밋정보를 보여줌
+        git reflog - HEAD가 가리켰던(ref) 커밋 이력을 보여줌
+        git reflog 브랜치명 - 브랜치별로 reflog를 보여줌
+        git log -g - reflog를 상세히 보여줌
+
+    10.reflog
+        HEAD가 이동한 history를 보여줌
+        >git reflog
